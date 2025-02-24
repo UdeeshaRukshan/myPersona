@@ -84,9 +84,9 @@ export default function Page() {
           >
             <h2 className="text-3xl font-bold mb-8">About Me</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              I&apos;m a passionate developer with expertise in building modern web applications. I love creating
-              beautiful and functional user experiences using the latest technologies.with includeing latest
-               Gen ai technologies to the existing system and develop latest distributed systems.
+            I’m a passionate developer with expertise in building modern web applications.
+             I love creating beautiful and functional user experiences using the latest technologies,
+              including the integration of Gen AI technologies into existing systems and the development of cutting-edge distributed systems.
             </p>
             <div className="flex gap-4 justify-center">
               <Link href="https://github.com/UdeeshaRukshan" target="_blank" rel="noopener noreferrer">
