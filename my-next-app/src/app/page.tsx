@@ -6,8 +6,9 @@ import Link from "next/link"
 import { Button as MuiButton, TextField, TextareaAutosize } from "@mui/material" // Import Material-UI components
 import '../styles/globals.css';  
 import Image from "next/image"
-import projects from "../info/info"
-
+import projects from "../info/info" 
+import { faUpwork } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Page() { 
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
@@ -97,6 +98,11 @@ export default function Page() {
               <Link href="https://www.linkedin.com/in/udeesha-rukshan-852022217/" target="_blank" rel="noopener noreferrer">
                 <MuiButton variant="outlined" size="small">
                   <Linkedin className="h-5 w-5" />
+                </MuiButton>
+              </Link>
+              <Link href="https://www.upwork.com/freelancers/~0163ba5fdf674aa284" target="_blank" rel="noopener noreferrer">
+                <MuiButton variant="outlined" size="small">
+                <FontAwesomeIcon icon={faUpwork} size="xl" />
                 </MuiButton>
               </Link>
             </div>
