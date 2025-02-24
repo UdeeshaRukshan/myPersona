@@ -25,6 +25,14 @@ const projects = [
     },
     {
       id: 4,
+      title: "Ai Avatar Generator",
+      description: "A hosted ai avartar generator that takes user input and generates a unique avartar using huggingface model.",
+      image: "/image-7.png",
+      github: "https://github.com/UdeeshaRukshan/AiAvatarDeploy",
+      demo: "https://ai-avatar-deploy-ochre.vercel.app",
+    },
+    {
+      id: 5,
       title: "Code complexity analyzer",
       description: "A tool to analyze the complexity of java code and suggest improvements.",
       image: "/Healthmate.png",
@@ -32,28 +40,14 @@ const projects = [
       demo: "https://ai-learning-demo.com",
     },
     {
-      id: 5,
+      id: 6,
       title: "AuctionPal",
       description: "A webapp to manage auctions and bidding for products.",
       image: "/Healthmate.png",
       github: "https://github.com/UdeeshaRukshan/ITP-PROJECT-U-2023",
       demo: "https://ai-learning-demo.com",
     },
-    {
-      id: 6,
-      title: "AuctionPal",
-      description: "A webapp to manage auctions and bidding for products.",
-      image: "/Healthmate.png",
-      github: "https://github.com/yourusername/ai-learning",
-      demo: "https://ai-learning-demo.com",
-    },
-    {
-      id: 6,
-      title: "Ai Avatar Generator",
-      description: "A hosted ai avartar generator that takes user input and generates a unique avartar using huggingface model.",
-      image: "/image-7.png",
-      github: "https://github.com/UdeeshaRukshan/AiAvatarDeploy",
-      demo: "https://ai-avatar-deploy-ochre.vercel.app",
-    }
+    
+   
   ];
   export default projects;

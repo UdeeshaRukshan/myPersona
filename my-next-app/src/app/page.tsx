@@ -1,15 +1,20 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, Briefcase, Mail, Github, Linkedin, ExternalLink } from "lucide-react"
+import { GraduationCap, Briefcase, Mail, Github, Linkedin, ExternalLink, Menu, X } from "lucide-react"
 import Link from "next/link"
-import { Button as MuiButton, TextField, TextareaAutosize } from "@mui/material" // Import Material-UI components
+import { Button as MuiButton, TextField, TextareaAutosize } from "@mui/material"
+import { useState } from "react" // Import useState hook
 import '../styles/globals.css';  
 import Image from "next/image"
 import projects from "../info/info" 
 import { faUpwork } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export default function Page() { 
+  // Add state for mobile menu
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 border-b">
@@ -21,7 +26,9 @@ export default function Page() {
             >
               Udeesha Rukshan
             </Link>
-            <div className="flex gap-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex gap-6">
               <Link href="#about" className="hover:text-primary">
                 About
               </Link>
@@ -35,9 +42,62 @@ export default function Page() {
                 Contact
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </nav>
-        </div>
-      </header>
+          
+          {/* Mobile Navigation Overlay */}
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-gray-900 shadow-lg border-b"
+            >
+              <div className="flex flex-col py-4 px-4">
+                <Link 
+                  href="#about" 
+                  className="py-3 hover:text-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link 
+                  href="#projects" 
+                  className="py-3 hover:text-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Projects
+                </Link>
+                <Link 
+                  href="#education" 
+                  className="py-3 hover:text-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Education
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="py-3 hover:text-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </header>
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -46,13 +106,12 @@ export default function Page() {
           
           <div className="flex justify-center items-center">
           <Image
-  src="/udeesha.jpg"  // Path relative to the public directory
-  alt="Udeesha Rukshan"
-  className="rounded-full p-12"  // Remove size-related classes, as width/height will be set below
-  width={356}  // Adjust the width as needed
-  height={356}  // Adjust the height as needed
-  
-/>
+            src="/udeesha.jpg"  // Path relative to the public directory
+            alt="Udeesha Rukshan"
+            className="rounded-full p-12"  
+            width={356}  
+            height={356}  
+          />
 
   </div>
 
@@ -155,52 +214,71 @@ export default function Page() {
   </div>
 </section> 
 
-
-
-
-
-        {/* Projects Section */}
-        <section id="projects" className="container mx-auto px-4 py-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project,index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-              >
-                <div className="aspect-video bg-muted relative">
-                  <Image
-                    src={project.image}
-                    alt={`Project ${project}`}
-                    className="w-70% h-70% object-cover"
-                    width={500}
-                    height={200}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">
-                   {project.description}
-                  </p>
-                  <div className="flex gap-2">
-                    <MuiButton variant="outlined" size="small">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </MuiButton>
-                    <MuiButton variant="contained" size="small">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
-                    </MuiButton>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+{/* Projects Section */}
+<section id="projects" className="container mx-auto px-4 py-24">
+  <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projects.map((project, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg h-96 flex flex-col"
+      >
+        <div className="h-48 bg-muted relative">
+          <Image
+            src={project.image}
+            alt={`Project ${project.title}`}
+            className="object-cover"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+          <p className="text-muted-foreground mb-4 line-clamp-3">
+            {project.description}
+          </p>
+          <div className="flex gap-2 mt-auto">
+          <Link href={project.github} passHref target="_blank" rel="noopener noreferrer">
+            <MuiButton 
+              variant="outlined" 
+              size="small"
+              sx={{
+                borderColor: 'rgba(209, 213, 219, 0.5)',
+                color: 'inherit',
+                '&:hover': {
+                  borderColor: '#8b5cf6',
+                }
+              }}
+            >
+              <Github className="h-4 w-4 mr-2" />
+              Code
+            </MuiButton>
+            </Link>
+            <Link href={project.demo} passHref target="_blank" rel="noopener noreferrer">
+            <MuiButton 
+              variant="contained" 
+              size="small"
+              sx={{
+                backgroundColor: '#8b5cf6',
+                '&:hover': {
+                  backgroundColor: '#7c3aed',
+                }
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Demo
+            </MuiButton>
+            </Link>
           </div>
-        </section>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
         {/* Education Section */}
         <section id="education" className="container mx-auto px-4 py-24">
@@ -246,53 +324,111 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="container mx-auto px-4 py-24">
-          <div className="max-w-xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
-            >
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <TextField
-                    id="name"
-                    label="Name"
-                    variant="outlined"
-                    fullWidth
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <TextField
-                    id="email"
-                    label="Email"
-                    type="email"
-                    variant="outlined"
-                    fullWidth
-                    placeholder="Your email"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <TextareaAutosize
-                    id="message"
-                    minRows={5}
-                    placeholder="Your message"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                  />
-                </div>
-                <MuiButton className="w-full" variant="contained" size="large">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Send Message
-                </MuiButton>
-              </form>
-            </motion.div>
-          </div>
-        </section>
+
+{/* Contact Section */}
+<section id="contact" className="container mx-auto px-4 py-24">
+  <div className="max-w-xl mx-auto">
+    <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
+    >
+      <form className="space-y-6">
+        <div className="space-y-2">
+          <TextField 
+            id="name"
+            label="Name"
+            variant="outlined"
+            fullWidth
+            placeholder="Your name"
+            className="dark-input"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(209, 213, 219, 0.3)',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(209, 213, 219, 0.5)',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8b5cf6',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'rgba(209, 213, 219, 0.7)',
+              },
+              '& .MuiOutlinedInput-input': {
+                color: 'inherit',
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: 'rgba(209, 213, 219, 0.5)',
+                opacity: 1,
+              }
+            }}
+          />
+        </div>
+        <div className="space-y-2">
+          <TextField
+            id="email"
+            label="Email"
+            type="email"
+            variant="outlined"
+            fullWidth
+            placeholder="Your email"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgba(209, 213, 219, 0.3)',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgba(209, 213, 219, 0.5)',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#8b5cf6',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'rgba(209, 213, 219, 0.7)',
+              },
+              '& .MuiOutlinedInput-input': {
+                color: 'inherit',
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: 'rgba(209, 213, 219, 0.5)',
+                opacity: 1,
+              }
+            }}
+          />
+        </div>
+        <div className="space-y-2">
+          <TextareaAutosize
+            id="message"
+            minRows={5}
+            placeholder="Your message"
+            className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400"
+          />
+        </div>
+        <MuiButton 
+          className="w-full" 
+          variant="contained" 
+          size="large"
+          sx={{
+            backgroundColor: '#8b5cf6',
+            '&:hover': {
+              backgroundColor: '#7c3aed',
+            },
+          }}
+        >
+          <Mail className="h-4 w-4 mr-2" />
+          Send Message
+        </MuiButton>
+      </form>
+    </motion.div>
+  </div>
+</section>
       </main>
 
       <footer className="bg-white dark:bg-gray-900 border-t">
@@ -311,7 +447,7 @@ export default function Page() {
         </Link>
       </div>
       <p className="text-sm text-gray-700 dark:text-gray-300">
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        © {new Date().getFullYear()} Udeesha Rukshan Gamage. All rights reserved.
       </p>
     </div>
   </div>
