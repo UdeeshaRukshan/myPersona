@@ -21,7 +21,7 @@ const projects = [
       description: "a hosted webapp that used nasa api to show the latest news and images from space.",
       image: "/apod.jpg",
       github: "https://github.com/yourusername/ai-learning",
-      demo: "https://af-frontend-beryl.vercel.app/profile",
+      demo: "https://af-frontend-beryl.vercel.app/home",
     },
     {
       id: 4,
