@@ -108,7 +108,7 @@ export default function Page() {
           <Image
             src="/udeesha.jpg"  // Path relative to the public directory
             alt="Udeesha Rukshan"
-            className="rounded-full p-12"  
+            className="rounded-full "  
             width={356}  
             height={356}  
           />
