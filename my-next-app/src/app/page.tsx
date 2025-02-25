@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Page() { 
   // Add state for mobile menu
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isExpanded, setIsExpanded] = useState(false);
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 border-b">
@@ -121,7 +121,7 @@ export default function Page() {
               Hello, I&apos;m Udeesha Rukshan
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-muted-foreground">
-  Full Stack Developer | Gen Ai developer | Distributed Systems
+  Full Stack Developer | GenAI developer | Distributed Systems
 </p>
 
             <div className="flex gap-4 justify-center">
@@ -238,14 +238,8 @@ export default function Page() {
         </div>
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-          <p className="text-muted-foreground mb-4">
-          {isExpanded ? project.description : project.description.slice(0, 100) + "..."}
-          <MuiButton 
-            className="text-blue-500 ml-2 underline"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? "Read Less" : "Read More"}
-          </MuiButton>
+          <p className="text-muted-foreground mb-4 overflow-hidden max-h-24">
+            {project.description}
         </p>
           <div className="flex gap-2 mt-auto">
           <Link href={project.github} passHref target="_blank" rel="noopener noreferrer">
@@ -351,14 +345,14 @@ export default function Page() {
 
 {/* Contact Section */}
 <section id="contact" className="container mx-auto px-4 py-24">
-  <div className="max-w-xl mx-auto">
+  <div className=" max-w-3xl mx-auto">
     <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
+      className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
     >
       <form className="space-y-6">
         <div className="space-y-2">
@@ -459,12 +453,12 @@ export default function Page() {
   <div className="container mx-auto px-4 py-8">
     <div className="flex flex-col items-center justify-center gap-4">
       <div className="flex gap-4">
-        <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <Link href="https://github.com/UdeeshaRukshan" target="_blank" rel="noopener noreferrer">
           <MuiButton variant="text" size="small" className="text-gray-800 dark:text-white">
             <Github className="h-5 w-5" />
           </MuiButton>
         </Link>
-        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <Link href="https://www.linkedin.com/in/udeesha-rukshan-852022217/" target="_blank" rel="noopener noreferrer">
           <MuiButton variant="text" size="small" className="text-gray-800 dark:text-white">
             <Linkedin className="h-5 w-5" />
           </MuiButton>

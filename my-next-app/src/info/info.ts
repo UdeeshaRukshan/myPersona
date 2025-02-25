@@ -43,7 +43,7 @@ const projects = [
       id: 6,
       title: "AuctionPal",
       description: "A webapp to manage auctions and bidding for products.",
-      image: "/Healthmate.png",
+      image: "/Auction.png",
       github: "https://github.com/UdeeshaRukshan/ITP-PROJECT-U-2023",
       demo: "https://ai-learning-demo.com",
     },
