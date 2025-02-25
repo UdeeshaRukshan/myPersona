@@ -120,7 +120,7 @@ export default function Page() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text">
               Hello, I&apos;m Udeesha Rukshan
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-muted-foreground">
+            <p className="text-xl md:text-2xl mb-8 text-muted-foreground dark:text-white">
   Full Stack Developer | GenAI developer | Distributed Systems
 </p>
 
@@ -140,10 +140,10 @@ export default function Page() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl font-bold mb-8">About Me</h2>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-9 dark:text-white">
             I’m a passionate developer with expertise in building modern web applications.
              I love creating beautiful and functional user experiences using the latest technologies,
               including the integration of Gen AI technologies into existing systems and the development of cutting-edge distributed systems.
