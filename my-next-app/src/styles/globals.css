@@ -76,4 +76,26 @@
     overflow: hidden;
     white-space: nowrap;
   }
+  @keyframes rgbGlow {
+    0% { border-color: rgb(255, 0, 0); }   /* Red */
+    20% { border-color: rgb(255, 165, 0); } /* Orange */
+    40% { border-color: rgb(0, 255, 0); }   /* Green */
+    60% { border-color: rgb(0, 255, 255); } /* Cyan */
+    80% { border-color: rgb(0, 0, 255); }   /* Blue */
+    100% { border-color: rgb(255, 0, 255); } /* Magenta */
+  }
+  
+  .rgb-border {
+    border-width: 2px;
+    border-style: solid;
+    animation: rgbGlow 3s infinite linear;
+  }
+  
+  .rgb-btn {
+    border-width: 2px;
+    border-style: solid;
+    animation: rgbGlow 3s infinite linear;
+  }
+  
+  
   

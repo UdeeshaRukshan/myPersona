@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Page() { 
   // Add state for mobile menu
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 border-b">
@@ -150,17 +150,17 @@ export default function Page() {
             </p>
             <div className="flex gap-4 justify-center">
               <Link href="https://github.com/UdeeshaRukshan" target="_blank" rel="noopener noreferrer">
-                <MuiButton variant="outlined" size="small">
+                <MuiButton variant="outlined" size="small" className="rgb-border">
                   <Github className="h-5 w-5" />
                 </MuiButton>
               </Link>
               <Link href="https://www.linkedin.com/in/udeesha-rukshan-852022217/" target="_blank" rel="noopener noreferrer">
-                <MuiButton variant="outlined" size="small">
+                <MuiButton variant="outlined" size="small" className="rgb-border">
                   <Linkedin className="h-5 w-5" />
                 </MuiButton>
               </Link>
               <Link href="https://www.upwork.com/freelancers/~0163ba5fdf674aa284" target="_blank" rel="noopener noreferrer">
-                <MuiButton variant="outlined" size="small">
+                <MuiButton variant="outlined" size="small" className="rgb-border" >
                 <FontAwesomeIcon icon={faUpwork} size="xl" />
                 </MuiButton>
               </Link>
@@ -238,9 +238,15 @@ export default function Page() {
         </div>
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-          <p className="text-muted-foreground mb-4 line-clamp-3">
-            {project.description}
-          </p>
+          <p className="text-muted-foreground mb-4">
+          {isExpanded ? project.description : project.description.slice(0, 100) + "..."}
+          <MuiButton 
+            className="text-blue-500 ml-2 underline"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </MuiButton>
+        </p>
           <div className="flex gap-2 mt-auto">
           <Link href={project.github} passHref target="_blank" rel="noopener noreferrer">
             <MuiButton 
@@ -289,7 +295,7 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+              className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
             >
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
@@ -308,17 +314,35 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+              className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
             >
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
-              </div>
-              <div>
+                </div>
+                <div>
                 <h3 className="text-xl font-bold mb-2">Intern Software Engineer</h3>
                 <p className="text-muted-foreground mb-1">GTN</p>
                 <p className="text-sm text-muted-foreground">2024 Mar - 2024 Sep</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
+            >
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <GraduationCap className="h-6 w-6 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Advance Level</h3>
+                <p className="text-muted-foreground mb-1">Carey College Colombo 08</p>
+                <p className="text-sm text-muted-foreground">2017-2020</p>
               </div>
             </motion.div>
           </div>
