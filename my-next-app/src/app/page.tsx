@@ -354,15 +354,17 @@ export default function Page() {
       viewport={{ once: true }}
       className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
     >
-      <form className="space-y-6">
+      <form action="https://formsubmit.co/udeeshagamage12@gmail.com" method="POST" className="space-y-6">
         <div className="space-y-2">
           <TextField 
             id="name"
             label="Name"
+            name="name"
             variant="outlined"
             fullWidth
             placeholder="Your name"
             className="dark-input"
+            required
             sx={{
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
@@ -374,6 +376,7 @@ export default function Page() {
                 '&.Mui-focused fieldset': {
                   borderColor: '#8b5cf6',
                 },
+                color: 'white',
               },
               '& .MuiInputLabel-root': {
                 color: 'rgba(209, 213, 219, 0.7)',
@@ -393,9 +396,12 @@ export default function Page() {
             id="email"
             label="Email"
             type="email"
+            name="email"
             variant="outlined"
             fullWidth
+            required
             placeholder="Your email"
+           
             sx={{
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
@@ -407,6 +413,7 @@ export default function Page() {
                 '&.Mui-focused fieldset': {
                   borderColor: '#8b5cf6',
                 },
+                color: 'white',
               },
               '& .MuiInputLabel-root': {
                 color: 'rgba(209, 213, 219, 0.7)',
@@ -424,6 +431,7 @@ export default function Page() {
         <div className="space-y-2">
           <TextareaAutosize
             id="message"
+            name="message"
             minRows={5}
             placeholder="Your message"
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400"
@@ -433,6 +441,7 @@ export default function Page() {
           className="w-full" 
           variant="contained" 
           size="large"
+          type="submit"
           sx={{
             backgroundColor: '#8b5cf6',
             '&:hover': {
