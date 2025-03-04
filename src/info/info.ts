@@ -35,7 +35,7 @@ const projects = [
       id: 5,
       title: "Code complexity analyzer",
       description: "A tool to analyze the complexity of java code and suggest improvements.",
-      image: "/Healthmate.png",
+      image: "/codecomplexity.jpg",
       github: "https://github.com/UdeeshaRukshan/Code_Complexity",
       demo: "https://ai-learning-demo.com",
     },
