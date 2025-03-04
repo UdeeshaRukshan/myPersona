@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin} from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Button as MuiButton } from "@mui/material";
 
@@ -13,7 +13,7 @@ import CertificationsSection from "../components/certifications/certificationSec
 import MainHeader from "../components/header/MainHeader";
 import Technologies from "../components/technologies/Technologies";
 import Education from "../components/education/Education";
-import Contact from "../components/contact/Contact"
+import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
 export default function Page() {
   return (
@@ -70,7 +70,7 @@ export default function Page() {
         <Technologies />
 
         {/* Projects Section */}
-<Projects/>
+        <Projects />
 
         {/* Education Section */}
         <Education />
