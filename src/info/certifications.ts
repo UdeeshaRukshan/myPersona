@@ -48,7 +48,7 @@ const certifications = [
         name: "Presentation Skills",
         description: "Presentation Skills",
         organization:"SLASSCOM",
-        image: "/SLASSCOM.jpeg",
+        image: "/slasscom.jpeg",
         issueDate:"Jan 2025",
         url: "https://www.coursera.org/account/accomplishments/specialization/certificate/7Z3L6ZQZ5Q8Q",
         
