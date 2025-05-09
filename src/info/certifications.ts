@@ -87,28 +87,28 @@ const certifications = [
         
 
     },
-    {
-        id: 9,
-        name: "Introduction to Deploying RAG Pipelines for Production at Scale",
-        description: "Deep Learning Specialization",
-        organization:"NVIDIA",
-        image: "/deeplearning.png",
-        issueDate:"Jan 2025",
-        url: "https://www.coursera.org/account/accomplishments/specialization/certificate/7Z3L6ZQZ5Q8Q",
+    // {
+    //     id: 9,
+    //     name: "Introduction to Deploying RAG Pipelines for Production at Scale",
+    //     description: "Deep Learning Specialization",
+    //     organization:"NVIDIA",
+    //     image: "/deeplearning.png",
+    //     issueDate:"Jan 2025",
+    //     url: "https://www.coursera.org/account/accomplishments/specialization/certificate/7Z3L6ZQZ5Q8Q",
         
 
-    },
-    {
-        id: 10,
-        name: "Introduction to Deploying RAG Pipelines for Production at Scale",
-        description: "Deep Learning Specialization",
-        organization:"NVIDIA",
-        image: "/deeplearning.png",
-        issueDate:"Jan 2025",
-        url: "https://www.coursera.org/account/accomplishments/specialization/certificate/7Z3L6ZQZ5Q8Q",
+    // },
+    // {
+    //     id: 10,
+    //     name: "Introduction to Deploying RAG Pipelines for Production at Scale",
+    //     description: "Deep Learning Specialization",
+    //     organization:"NVIDIA",
+    //     image: "/deeplearning.png",
+    //     issueDate:"Jan 2025",
+    //     url: "https://www.coursera.org/account/accomplishments/specialization/certificate/7Z3L6ZQZ5Q8Q",
         
 
-    },
+    // },
    
   ];
   export default certifications;

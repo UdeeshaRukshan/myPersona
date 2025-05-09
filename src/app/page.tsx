@@ -49,7 +49,7 @@ export default function Page() {
               Hello, I&apos;m Udeesha Rukshan
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-muted-foreground dark:text-white">
-              Full Stack Developer | GenAI developer | Distributed Systems
+              Full Stack Developer | GenAI developer | Cloud Enthusiast
             </p>
 
             <div className="flex gap-4 justify-center">
@@ -57,7 +57,9 @@ export default function Page() {
                 Download CV
               </MuiButton>
               <MuiButton variant="outlined" size="large">
+                <Link href="#projects" className="text-gray-800 dark:text-white">
                 View Projects
+                </Link>
               </MuiButton>
             </div>
           </motion.div>

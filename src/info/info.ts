@@ -1,4 +1,13 @@
 const projects = [
+  
+  {
+      id: 8,
+      title: "LMSCoreService",
+      description: "A microservices-based LMS system hosted using Kubernetes, Docker, and GCP.",
+      image: "/LMSCoreService.png",
+      github:"", 
+      demo:""
+    },
     {
       id: 1,
       title: "HealthMate",
@@ -47,6 +56,23 @@ const projects = [
       github: "https://github.com/UdeeshaRukshan/ITP-PROJECT-U-2023",
       demo: "https://ai-learning-demo.com",
     },
+    {
+      id: 7,
+      title: "AI-Powered Chatbot",
+      description: "A chatbot that uses Deepseek to provide answers to user queries based on the available documents.",
+      image: "/chatbot.png",
+      github:"", 
+      demo:""
+    },
+    {
+      id: 9,
+      title: "Stay safe",
+      description: "A Iphone app that notifies the users about criminal activities in their area.",
+      image: "/staysafe.png",
+      github:"", 
+      demo:""
+    },
+    
     
    
   ];
