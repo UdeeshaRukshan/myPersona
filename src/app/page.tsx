@@ -36,8 +36,8 @@ export default function Page() {
                 src="/udeesha2.jpeg" // Path relative to the public directory
                 alt="Udeesha Rukshan"
                 className="rounded-full"
-                width={336}
-                height={336}
+                width={436}
+                height={436}
               />
             </div>
 
