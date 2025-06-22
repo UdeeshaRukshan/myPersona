@@ -33,11 +33,11 @@ export default function Page() {
           >
             <div className="flex justify-center items-center">
               <Image
-                src="/udeesha2.jpeg" // Path relative to the public directory
+                src="/udeesha.jpg" // Path relative to the public directory
                 alt="Udeesha Rukshan"
                 className="rounded-full"
-                width={436}
-                height={436}
+                width={336}
+                height={336}
               />
             </div>
 
