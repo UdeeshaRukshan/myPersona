@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react"; // Import the menu icon
-
+//Header
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
