@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button as MuiButton, TextField } from "@mui/material";
-import { Mail, Send } from "lucide-react"; // Using Send for the button icon
+import { Send } from "lucide-react"; // Using Send for the button icon
 
 // Common styles for TextField for DRYness
 const textFieldStyles = {

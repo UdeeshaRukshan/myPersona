@@ -16,7 +16,6 @@ import Education from "../components/education/Education";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
 import Experience from "../components/experience/Experience"; // Added import
-import Chatbot from "../components/chat/Chatbot"; // Import the Chatbot component
 
 export default function Page() {
   return (
@@ -174,4 +173,5 @@ export default function Page() {
       </footer>
     </div>
   );
+}
 }

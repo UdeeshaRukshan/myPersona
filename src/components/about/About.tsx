@@ -70,7 +70,7 @@ const About = () => {
           variants={itemVariants}
           className="flex flex-wrap gap-4 justify-center"
         >
-          {socialLinks.map((link, index) => (
+          {socialLinks.map((link) => (
             <motion.div
               key={link.label}
               whileHover={{ scale: 1.1, y: -2 }}
