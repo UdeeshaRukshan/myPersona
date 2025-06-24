@@ -15,6 +15,7 @@ import Technologies from "../components/technologies/Technologies";
 import Education from "../components/education/Education";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
+import Experience from "../components/experience/Experience"; // Added import
 export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
@@ -73,6 +74,9 @@ export default function Page() {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* Experience Section */}
+        <Experience />
 
         {/* Education Section */}
         <Education />

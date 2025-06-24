@@ -27,6 +27,9 @@ return (
               <Link href="#education" className="hover:text-primary">
                 Education
               </Link>
+              <Link href="#experience" className="hover:text-primary">
+                Experience
+              </Link>
               <Link href="#contact" className="hover:text-primary">
                 Contact
               </Link>
@@ -74,6 +77,13 @@ return (
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Education
+                </Link>
+                <Link
+                  href="#experience"
+                  className="py-3 hover:text-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Experience
                 </Link>
                 <Link
                   href="#contact"
