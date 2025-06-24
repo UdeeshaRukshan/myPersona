@@ -63,8 +63,8 @@ export default function Page() {
                 src="/udeesha2.png" // Path relative to the public directory
                 alt="Udeesha Rukshan"
                 className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
-                width={160} // Slightly smaller for a sleeker look
-                height={160}
+                width={260} // Slightly smaller for a sleeker look
+                height={260}
               />
             </motion.div>
 
