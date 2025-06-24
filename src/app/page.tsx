@@ -60,7 +60,7 @@ export default function Page() {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 }}
             >
               <Image
-                src="/udeesha2.jpg" // Path relative to the public directory
+                src="/udeesha2.png" // Path relative to the public directory
                 alt="Udeesha Rukshan"
                 className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
                 width={160} // Slightly smaller for a sleeker look
