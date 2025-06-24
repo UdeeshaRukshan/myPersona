@@ -127,9 +127,9 @@ Answer:
 
     return NextResponse.json({ answer });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Chat API error:", error);
-    return NextResponse.json({ error: error.message || "An internal server error occurred" }, { status: 500 });
+    return NextResponse.json({ error: (error as Error).message || "An internal server error occurred" }, { status: 500 });
   }
 }
 
