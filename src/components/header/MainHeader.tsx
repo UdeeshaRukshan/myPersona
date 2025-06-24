@@ -1,104 +1,93 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {useState} from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
+
+const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => {
+  return (
+    <motion.div whileHover={{ y: -2, color: "rgb(236, 72, 153)" }} transition={{ duration: 0.2 }}>
+      <Link href={href} className="hover:text-pink-500 dark:hover:text-pink-400 transition-colors" onClick={onClick}>
+        {children}
+      </Link>
+    </motion.div>
+  );
+};
+
 const MainHeader = () => {
-     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    
-return (
-  
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text"
-            >
-              Udeesha Rukshan
-            </Link>
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-6">
-              <Link href="#about" className="hover:text-primary">
-                About
-              </Link>
-              <Link href="#projects" className="hover:text-primary">
-                Projects
-              </Link>
-              <Link href="#education" className="hover:text-primary">
-                Education
-              </Link>
-              <Link href="#experience" className="hover:text-primary">
-                Experience
-              </Link>
-              <Link href="#contact" className="hover:text-primary">
-                Contact
-              </Link>
-            </div>
+  const navItems = [
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+    { href: "#experience", label: "Experience" },
+    { href: "#contact", label: "Contact" },
+  ];
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
+  return (
+    <div className="container mx-auto px-4 py-4">
+      <nav className="flex items-center justify-between">
+        <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+          <Link
+            href="/"
+            className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text"
+          >
+            Udeesha Rukshan
+          </Link>
+        </motion.div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
+          {navItems.map((item) => (
+            <NavLink key={item.href} href={item.href}>
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+            <motion.button
+              whileTap={{ scale: 0.85 }}
+              className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
                 <Menu className="h-6 w-6" />
               )}
-            </button>
+            </motion.button>
           </nav>
 
           {/* Mobile Navigation Overlay */}
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-gray-900 shadow-lg border-b"
-            >
-              <div className="flex flex-col py-4 px-4">
-                <Link
-                  href="#about"
-                  className="py-3 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  About
-                </Link>
-                <Link
-                  href="#projects"
-                  className="py-3 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="#education"
-                  className="py-3 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Education
-                </Link>
-                <Link
-                  href="#experience"
-                  className="py-3 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Experience
-                </Link>
-                <Link
-                  href="#contact"
-                  className="py-3 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
-            </motion.div>
-          )}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="md:hidden absolute left-0 right-0 top-full bg-white dark:bg-gray-800 shadow-lg border-b dark:border-gray-700"
+              >
+                <div className="flex flex-col py-2 px-4">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="py-3 text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-    
-)
-
-}
+    </div>
+  );
+};
 
 export default MainHeader;
