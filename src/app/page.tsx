@@ -54,22 +54,23 @@ export default function Page() {
             className="max-w-3xl mx-auto text-center z-10"
           >
             <motion.div
-              className="flex justify-center items-center mb-8"
+              className="flex justify-center items-center mb-12" // Increased bottom margin
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 }}
             >
               <Image
-                src="/udeesha2.png" // Path relative to the public directory
+                src="/udeesha2.png" 
                 alt="Udeesha Rukshan"
                 className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
-                width={260} // Slightly smaller for a sleeker look
-                height={260}
+                width={280} // Increased from 260
+                height={280} // Increased from 260
+                priority // Add priority for LCP optimization
               />
             </motion.div>
 
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text px-4" // Added horizontal padding
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}

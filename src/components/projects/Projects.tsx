@@ -55,35 +55,31 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         </p>
         <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
           {project.github && (
-            <Link href={project.github} passHref legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
-                <MuiButton
-                  variant="outlined"
-                  size="small"
-                  startIcon={<Github size={16} />}
-                  className="!border-gray-400 !text-gray-700 dark:!border-gray-500 dark:!text-gray-300 hover:!bg-gray-100 dark:hover:!bg-gray-700 hover:!border-pink-500 dark:hover:!border-pink-400 hover:!text-pink-500 dark:hover:!text-pink-400 transition-all"
-                >
-                  Code
-                </MuiButton>
-              </a>
+            <Link href={project.github} target="_blank" rel="noopener noreferrer">
+              <MuiButton
+                variant="outlined"
+                size="small"
+                startIcon={<Github size={16} />}
+                className="!border-gray-400 !text-gray-700 dark:!border-gray-500 dark:!text-gray-300 hover:!bg-gray-100 dark:hover:!bg-gray-700 hover:!border-pink-500 dark:hover:!border-pink-400 hover:!text-pink-500 dark:hover:!text-pink-400 transition-all"
+              >
+                Code
+              </MuiButton>
             </Link>
           )}
           {project.demo && (
-            <Link href={project.demo} passHref legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
-                <MuiButton
-                  variant="contained"
-                  size="small"
-                  startIcon={<ExternalLink size={16} />}
-                  className="!bg-pink-500 hover:!bg-pink-600 !text-white transition-all"
-                >
-                  Demo
-                </MuiButton>
-              </a>
+            <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+              <MuiButton
+                variant="contained"
+                size="small"
+                startIcon={<ExternalLink size={16} />}
+                className="!bg-pink-500 hover:!bg-pink-600 !text-white transition-all"
+              >
+                Demo
+              </MuiButton>
             </Link>
           )}
           {!project.github && !project.demo && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic">Links coming soon</p>
+            <span className="text-xs text-gray-500 dark:text-gray-400 italic py-2">Coming soon</span>
           )}
         </div>
       </div>

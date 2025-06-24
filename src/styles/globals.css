@@ -96,6 +96,22 @@
     border-style: solid;
     animation: rgbGlow 3s infinite linear;
   }
-  
-  
-  
+
+/* Ensure text is properly sized and wrapped */
+@media (max-width: 640px) {
+  .text-7xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .text-7xl {
+    font-size: 2rem;
+    line-height: 1.1;
+    word-break: break-word;
+  }
+}
+
+
