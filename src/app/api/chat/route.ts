@@ -1,4 +1,4 @@
-//typescript
+export {};
 // Comment out or remove all code in this file for static export builds.
 // import { NextRequest, NextResponse } from "next/server";
 // import personalData from "@/info/personalData.json"; // Use Next.js path alias
