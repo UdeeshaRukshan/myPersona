@@ -18,18 +18,8 @@ const experiences: ExperienceInfo[] = [
     ],
     logo: "/gtngroup_logo.jpeg",
   },
-  {
-    company: "Nvidia",
-    title: "GenAI Training Program",
-    duration: "Jan 2024",
-    description: [
-      "Completed an intensive training program on Generative AI.",
-      "Gained hands-on experience with large language models and diffusion models.",
-      "Developed projects applying GenAI techniques to real-world problems.",
-    ],
-    logo: "/nvidia_logo.jpeg",
-  },
-  // Add more experiences here
+  
+  
 ];
 
 export default experiences;
