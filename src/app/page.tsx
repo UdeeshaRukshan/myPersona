@@ -32,7 +32,7 @@ export default function Page() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
+        <section className="container mx-auto py-32 flex flex-col items-center text-center relative ">
           {/* Background decorative elements */}
           <motion.div
             className="absolute -top-20 -left-20 w-72 h-72 bg-pink-300/30 rounded-full filter blur-xl opacity-70 animate-blob"
