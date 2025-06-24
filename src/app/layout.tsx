@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description: 'Personal portfolio showcasing my projects and skills',
   icons: {
     icon: [
-      { url: '/udeesha.png' },
-      { url: '/udeesha.png', type: 'image/png', sizes: '192x192' }
+      { url: '/udeesha2.png' },
+      { url: '/udeesha2.png', type: 'image/png', sizes: '192x192' }
     ],
     apple: [
-      { url: '/udeesha.png', sizes: '180x180', type: 'image/png' }
+      { url: '/udeesha2.png', sizes: '180x180', type: 'image/png' }
     ],
   }
 }
