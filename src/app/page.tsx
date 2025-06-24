@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Button as MuiButton } from "@mui/material";
+import { useEffect } from "react"; // Add this import
 
 import "../styles/globals.css";
 import Image from "next/image";
@@ -18,6 +19,11 @@ import Projects from "../components/projects/Projects";
 import Experience from "../components/experience/Experience"; // Added import
 
 export default function Page() {
+  // Add this effect to scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm dark:bg-gray-900/80 border-b">

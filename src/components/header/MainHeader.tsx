@@ -16,6 +16,13 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () 
 const MainHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
@@ -31,6 +38,10 @@ const MainHeader = () => {
           <Link
             href="/"
             className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToTop();
+            }}
           >
             Udeesha Rukshan
           </Link>
