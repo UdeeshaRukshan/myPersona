@@ -1,10 +1,96 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Button as MuiButton } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import projects from "../../info/info";
+import projects from "../../info/info"; // Assuming this path is correct and exports projects
 import Image from "next/image";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+
+// Define project type based on usage, assuming from info.ts
+interface Project {
+  id: number; // Or string, depending on your data
+  title: string;
+  description: string;
+  image: string;
+  github?: string;
+  demo?: string;
+}
+
+
+const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.4, delay: index * 0.1, ease: "easeOut" }
+    }
+  };
+
+  return (
+    <motion.div
+      key={project.id}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg flex flex-col h-full group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5"
+    >
+      <div className="h-52 sm:h-56 md:h-60 bg-muted relative overflow-hidden">
+        <Image
+          src={project.image}
+          alt={`Project: ${project.title}`}
+          className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
+          layout="fill"
+          sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="p-5 sm:p-6 flex flex-col flex-grow">
+        <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-pink-500 transition-colors duration-300">
+          {project.title}
+        </h3>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 overflow-hidden max-h-24 leading-relaxed flex-grow">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+          {project.github && (
+            <Link href={project.github} passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <MuiButton
+                  variant="outlined"
+                  size="small"
+                  startIcon={<Github size={16} />}
+                  className="!border-gray-400 !text-gray-700 dark:!border-gray-500 dark:!text-gray-300 hover:!bg-gray-100 dark:hover:!bg-gray-700 hover:!border-pink-500 dark:hover:!border-pink-400 hover:!text-pink-500 dark:hover:!text-pink-400 transition-all"
+                >
+                  Code
+                </MuiButton>
+              </a>
+            </Link>
+          )}
+          {project.demo && (
+            <Link href={project.demo} passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <MuiButton
+                  variant="contained"
+                  size="small"
+                  startIcon={<ExternalLink size={16} />}
+                  className="!bg-pink-500 hover:!bg-pink-600 !text-white transition-all"
+                >
+                  Demo
+                </MuiButton>
+              </a>
+            </Link>
+          )}
+          {!project.github && !project.demo && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 italic">Links coming soon</p>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 
 function Projects() {
   const [showAll, setShowAll] = useState(false);
@@ -13,113 +99,36 @@ function Projects() {
 
   return (
     <section id="projects" className="container mx-auto px-4 py-24">
-      <h2 className="text-3xl font-bold mb-12 text-center">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-4xl font-bold mb-16 text-center bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text"
+      >
         Featured Projects
-      </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      </motion.h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         {displayProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg h-96 flex flex-col"
-          >
-            <div className="h-48 bg-muted relative">
-              <Image
-                src={project.image}
-                alt={`Project ${project.title}`}
-                className="object-cover"
-                fill={true}
-                sizes="(max-width: 768px)90vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground mb-4 overflow-hidden max-h-24">
-                {project.description}
-              </p>
-              <div className="flex gap-2 mt-auto">
-                <Link
-                  href={project.github}
-                  passHref
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MuiButton
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      borderColor: "rgba(209, 213, 219, 0.5)",
-                      color: "inherit",
-                      "&:hover": {
-                        borderColor: "#8b5cf6",
-                      },
-                    }}
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
-                  </MuiButton>
-                </Link>
-                <Link
-                  href={project.demo}
-                  passHref
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MuiButton
-                    variant="contained"
-                    size="small"
-                    sx={{
-                      backgroundColor: "#8b5cf6",
-                      "&:hover": {
-                        backgroundColor: "#7c3aed",
-                      },
-                    }}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Demo
-                  </MuiButton>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
+          // Pass project and index to ProjectCard
+          <ProjectCard key={project.id || index} project={project as Project} index={index} />
         ))}
       </div>
-      
+
       {hasMoreProjects && (
-        <div className="flex justify-center mt-24">
+        <div className="flex justify-center mt-16 sm:mt-20">
           <MuiButton
             variant="outlined"
             onClick={() => setShowAll(!showAll)}
-            sx={{
-              borderColor: "#8b5cf6",
-              color: "#8b5cf6",
-              padding: "12px 20px",
-              marginTop: "12px",
-              "&:hover": {
-                borderColor: "#7c3aed",
-                backgroundColor: "rgba(139, 92, 246, 0.1)",
-              },
-            }}
+            startIcon={showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+            className="!border-pink-500 !text-pink-500 hover:!bg-pink-500/10 !py-3 !px-6 !text-base !font-semibold !rounded-lg transition-all duration-300 transform hover:scale-105"
           >
-            {showAll ? (
-              <>
-                <ChevronUp className="h-4 w-4 mr-2" />
-                Show Less
-              </>
-            ) : (
-              <>
-                <ChevronDown className="h-4 w-4 mr-2" />
-                Show More ({projects.length - 6} more)
-              </>
-            )}
+            {showAll ? "Show Less" : `Show More (${projects.length - displayProjects.length} more)`}
           </MuiButton>
         </div>
       )}
     </section>
-  )
+  );
 }
 
-export default Projects
+export default Projects;

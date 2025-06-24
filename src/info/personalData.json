@@ -1,0 +1,78 @@
+{
+  "fullName": "Udeesha Rukshan Gamage",
+  "title": "Full Stack Developer | GenAI Developer | Cloud Enthusiast",
+  "bio": "A passionate and results-oriented Software Engineer with experience in full-stack web development, generative AI, and cloud technologies. Proven ability to learn quickly and collaborate effectively in fast-paced environments. Currently seeking challenging opportunities to leverage skills in creating innovative solutions.",
+  "contact": {
+    "email": "udeesha.rukshan.g@example.com",
+    "linkedin": "https://www.linkedin.com/in/udeesha-rukshan-852022217/",
+    "github": "https://github.com/UdeeshaRukshan"
+  },
+  "skills": [
+    { "name": "JavaScript", "level": "Advanced" },
+    { "name": "TypeScript", "level": "Intermediate" },
+    { "name": "React", "level": "Advanced" },
+    { "name": "Next.js", "level": "Advanced" },
+    { "name": "Node.js", "level": "Intermediate" },
+    { "name": "Python", "level": "Intermediate" },
+    { "name": "Java", "level": "Intermediate" },
+    { "name": "Spring Boot", "level": "Beginner" },
+    { "name": "PostgreSQL", "level": "Intermediate" },
+    { "name": "MongoDB", "level": "Beginner" },
+    { "name": "Docker", "level": "Intermediate" },
+    { "name": "Kubernetes", "level": "Beginner" },
+    { "name": "Google Cloud Platform (GCP)", "level": "Intermediate" },
+    { "name": "AWS", "level": "Beginner" },
+    { "name": "Generative AI", "level": "Intermediate" },
+    { "name": "Langchain", "level": "Beginner" },
+    { "name": "Tailwind CSS", "level": "Advanced" },
+    { "name": "Material UI", "level": "Intermediate" },
+    { "name": "Git", "level": "Advanced" }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Software Engineering (Reading)",
+      "institution": "Sri Lanka Institute of Information Technology (SLIIT)",
+      "period": "2021 - 2025 (Expected)",
+      "details": "Focusing on software development principles, data structures, algorithms, and cloud computing."
+    },
+    {
+      "degree": "Advanced Level (Physical Science Stream)",
+      "institution": "Carey College, Colombo 08",
+      "period": "2017 - 2020",
+      "details": "Studied Combined Mathematics, Physics, and Chemistry."
+    }
+  ],
+  "experience": [
+    {
+      "company": "GTN Technologies",
+      "title": "Software Engineer Intern",
+      "duration": "Mar 2024 - Present",
+      "description": [
+        "Working on full-stack development of web applications using React, Node.js, and PostgreSQL.",
+        "Developing and maintaining RESTful APIs for various services.",
+        "Collaborating with cross-functional teams to deliver high-quality software solutions."
+      ],
+      "logo": "/gtngroup_logo.jpeg"
+    }
+  ],
+  "projects": [
+    {
+      "title": "LMSCoreService",
+      "description": "A microservices-based LMS system hosted using Kubernetes, Docker, and GCP."
+    },
+    {
+      "title": "HealthMate",
+      "description": "NFC-Based Patient Tracking system for hospitals to manage patient data securely."
+    },
+    {
+      "title": "Education management system",
+      "description": "A web-based platform to manage educational institutions' data and operations. by using microservice architecture."
+    }
+  ],
+  "interests": [
+    "Exploring new AI technologies",
+    "Contributing to open-source projects",
+    "Space Exploration",
+    "Photography"
+  ]
+}

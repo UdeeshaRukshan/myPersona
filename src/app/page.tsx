@@ -16,6 +16,8 @@ import Education from "../components/education/Education";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
 import Experience from "../components/experience/Experience"; // Added import
+import Chatbot from "../components/chat/Chatbot"; // Import the Chatbot component
+
 export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
@@ -25,44 +27,90 @@ export default function Page() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-24 flex flex-col items-center text-center">
+        <section className="container mx-auto px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
+          {/* Background decorative elements */}
+          <motion.div
+            className="absolute -top-20 -left-20 w-72 h-72 bg-pink-300/30 rounded-full filter blur-xl opacity-70 animate-blob"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          ></motion.div>
+          <motion.div
+            className="absolute -bottom-20 -right-20 w-72 h-72 bg-teal-300/30 rounded-full filter blur-xl opacity-70 animate-blob animation-delay-2000"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          ></motion.div>
+           <motion.div
+            className="absolute top-1/2 left-1/4 w-60 h-60 bg-violet-300/30 rounded-full filter blur-xl opacity-70 animate-blob animation-delay-4000"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          ></motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-3xl mx-auto text-center z-10"
           >
-            <div className="flex justify-center items-center">
+            <motion.div
+              className="flex justify-center items-center mb-8"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 }}
+            >
               <Image
                 src="/udeesha.jpg" // Path relative to the public directory
                 alt="Udeesha Rukshan"
-                className="rounded-full"
-                width={336}
-                height={336}
+                className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
+                width={160} // Slightly smaller for a sleeker look
+                height={160}
               />
-            </div>
+            </motion.div>
 
-            <p>
-              <br></br>
-            </p>
-
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text">
+            <motion.h1
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
               Hello, I&apos;m Udeesha Rukshan
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-muted-foreground dark:text-white">
-              Full Stack Developer | GenAI developer | Cloud Enthusiast
-            </p>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl mb-10 text-gray-700 dark:text-gray-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+            >
+              Full Stack Developer | GenAI Developer | Cloud Enthusiast
+            </motion.p>
 
-            <div className="flex gap-4 justify-center">
-              <MuiButton variant="contained" size="large">
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.9 }}
+            >
+              <MuiButton
+                variant="contained"
+                size="large"
+                className="bg-pink-500 hover:bg-pink-600 transition-all duration-300 ease-in-out transform hover:scale-105"
+                // sx={{ backgroundColor: 'primary.main', '&:hover': { backgroundColor: 'primary.dark' }}}
+              >
                 Download CV
               </MuiButton>
-              <MuiButton variant="outlined" size="large">
-                <Link href="#projects" className="text-gray-800 dark:text-white">
-                View Projects
+              <MuiButton
+                variant="outlined"
+                size="large"
+                className="border-pink-500 text-pink-500 hover:bg-pink-500/10 transition-all duration-300 ease-in-out transform hover:scale-105"
+                // sx={{ borderColor: 'primary.main', color: 'primary.main', '&:hover': { backgroundColor: 'primary.light' }}}
+              >
+                <Link href="#projects" className="text-inherit dark:text-inherit">
+                  View Projects
                 </Link>
               </MuiButton>
-            </div>
+            </motion.div>
           </motion.div>
         </section>
 

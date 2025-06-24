@@ -1,127 +1,131 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Button as MuiButton,
-  TextField,
-  TextareaAutosize,
-} from "@mui/material";
-import { Mail } from "lucide-react";
+import { Button as MuiButton, TextField } from "@mui/material";
+import { Mail, Send } from "lucide-react"; // Using Send for the button icon
+
+// Common styles for TextField for DRYness
+const textFieldStyles = {
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "rgba(156, 163, 175, 0.4)", // gray-400
+    },
+    "&:hover fieldset": {
+      borderColor: "rgba(129, 140, 248, 0.7)", // indigo-400
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#ec4899", // pink-500
+    },
+    color: "text.primary", // Let theme handle text color
+    backgroundColor: "transparent", // Ensure no override from Mui
+  },
+  "& .MuiInputLabel-root": {
+    color: "text.secondary", // Let theme handle label color
+    "&.Mui-focused": {
+      color: "#ec4899", // pink-500
+    }
+  },
+  "& .MuiOutlinedInput-input": {
+    color: "text.primary", // Let theme handle input text color
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+};
+
+
 function Contact() {
   return (
     <section id="contact" className="container mx-auto px-4 py-24">
-      <div className=" max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+      <motion.div
+        className="max-w-2xl mx-auto" // Slightly narrower for contact form
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.h2
+          variants={itemVariants}
+          className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text"
+        >
+          Get In Touch
+        </motion.h2>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
+          variants={itemVariants}
+          className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl" // Enhanced shadow and rounding
         >
           <form
-            action="https://formsubmit.co/udeeshagamage12@gmail.com"
+            action="https://formsubmit.co/udeeshagamage12@gmail.com" // Replace with your actual email
             method="POST"
             className="space-y-6"
           >
-            <div className="space-y-2">
+            <motion.div variants={itemVariants}>
               <TextField
                 id="name"
-                label="Name"
+                label="Full Name"
                 name="name"
                 variant="outlined"
                 fullWidth
-                placeholder="Your name"
-                className="dark-input"
                 required
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "rgba(209, 213, 219, 0.3)",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "rgba(209, 213, 219, 0.5)",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "#8b5cf6",
-                    },
-                    color: "white",
-                  },
-                  "& .MuiInputLabel-root": {
-                    color: "rgba(209, 213, 219, 0.7)",
-                  },
-                  "& .MuiOutlinedInput-input": {
-                    color: "inherit",
-                  },
-                  "& .MuiInputBase-input::placeholder": {
-                    color: "rgba(209, 213, 219, 0.5)",
-                    opacity: 1,
-                  },
-                }}
+                InputProps={{ className: "dark:text-white" }}
+                sx={textFieldStyles}
               />
-            </div>
-            <div className="space-y-2">
+            </motion.div>
+            <motion.div variants={itemVariants}>
               <TextField
                 id="email"
-                label="Email"
+                label="Email Address"
                 type="email"
                 name="email"
                 variant="outlined"
                 fullWidth
                 required
-                placeholder="Your email"
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "rgba(209, 213, 219, 0.3)",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "rgba(209, 213, 219, 0.5)",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "#8b5cf6",
-                    },
-                    color: "white",
-                  },
-                  "& .MuiInputLabel-root": {
-                    color: "rgba(209, 213, 219, 0.7)",
-                  },
-                  "& .MuiOutlinedInput-input": {
-                    color: "inherit",
-                  },
-                  "& .MuiInputBase-input::placeholder": {
-                    color: "rgba(209, 213, 219, 0.5)",
-                    opacity: 1,
-                  },
-                }}
+                InputProps={{ className: "dark:text-white" }}
+                sx={textFieldStyles}
               />
-            </div>
-            <div className="space-y-2">
-              <TextareaAutosize
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <TextField
                 id="message"
+                label="Your Message"
                 name="message"
-                minRows={5}
-                placeholder="Your message"
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400"
+                variant="outlined"
+                fullWidth
+                required
+                multiline
+                rows={5}
+                InputProps={{ className: "dark:text-white" }}
+                sx={textFieldStyles}
               />
-            </div>
-            <MuiButton
-              className="w-full"
-              variant="contained"
-              size="large"
-              type="submit"
-              sx={{
-                backgroundColor: "#8b5cf6",
-                "&:hover": {
-                  backgroundColor: "#7c3aed",
-                },
-              }}
-            >
-              <Mail className="h-4 w-4 mr-2" />
-              Send Message
-            </MuiButton>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <MuiButton
+                fullWidth // Changed from w-full for Mui consistency
+                variant="contained"
+                size="large"
+                type="submit"
+                startIcon={<Send size={18} />} // Changed icon to Send
+                className="!bg-pink-500 hover:!bg-pink-600 !text-white !py-3 !font-semibold !rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Send Message
+              </MuiButton>
+            </motion.div>
+             {/* Formsubmit.co hidden fields for redirect etc. */}
+            <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html" /> {/* Replace with your thank you page */}
+            <input type="hidden" name="_subject" value="New contact form submission!" />
+            <input type="hidden" name="_captcha" value="false" /> {/* Consider enabling captcha for production */}
           </form>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
