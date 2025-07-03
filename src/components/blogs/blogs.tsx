@@ -44,7 +44,7 @@ const BlogCard: React.FC<{ blog: BlogPost; index: number }> = ({ blog, index }) 
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.4, delay: index * 0.1, ease: "easeOut" }
+      transition: { duration: 0.4, delay: index * 0.1, ease: "easeOut" as const }
     }
   };
 
