@@ -24,7 +24,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.4, delay: index * 0.1, ease: "easeOut" }
+      transition: { duration: 0.4, delay: index * 0.1, ease: "easeOut" as const }
     }
   };
 

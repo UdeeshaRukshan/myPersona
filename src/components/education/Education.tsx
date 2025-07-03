@@ -15,7 +15,7 @@ function Education() {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" as const }}
         viewport={{ once: true }}
         className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
       >
@@ -36,7 +36,7 @@ function Education() {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" as const }}
         viewport={{ once: true }}
         className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
       >
@@ -58,7 +58,7 @@ function Education() {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" as const }}
         viewport={{ once: true }}
         className="flex gap-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg rgb-border"
       >

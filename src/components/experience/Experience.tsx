@@ -11,7 +11,7 @@ const ExperienceCard: React.FC<{ experience: ExperienceInfo; index: number }> = 
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.5, delay: index * 0.2, ease: "easeOut" }
+      transition: { duration: 0.5, delay: index * 0.2, ease: "easeOut" as const }
     }
   };
 

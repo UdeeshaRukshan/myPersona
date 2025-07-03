@@ -21,7 +21,7 @@ const CertificationCard: React.FC<{ certification: Certification; index: number 
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.4, delay: index * 0.05, ease: "easeOut" } // Faster delay for many items
+      transition: { duration: 0.4, delay: index * 0.05, ease: "easeOut" as const } // Faster delay for many items
     }
   };
 
