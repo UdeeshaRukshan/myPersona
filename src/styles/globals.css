@@ -1,0 +1,204 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground: 222.2 84% 4.9%; /* Default light foreground color */
+    --muted-foreground: 215.4 16.3% 46.9%; /* Muted text color for light mode */
+    
+    --primary: 262.1 83.3% 57.8%; /* Primary color */
+    --primary-foreground: 210 40% 98%; /* Primary foreground color */
+    
+    --background: 210 40% 96.1%; /* Default light background color */
+    --border: 214.3 31.8% 91.4%; /* Border color */
+    
+    --text-muted: 215 20.2% 65.1%; /* Muted text color for light mode */
+  }
+
+  .dark {
+    --foreground: 210 40% 98%; /* Lighter text for dark theme */
+    --muted-foreground: 215 20.2% 65.1%; /* Muted text color for dark mode */
+    
+    --primary: 262.1 83.3% 57.8%; /* Primary color */
+    --primary-foreground: 210 40% 98%; /* Primary foreground color for dark mode */
+    
+    --background: 217.2 32.6% 17.5%; /* Darker background for dark mode */
+    --border: 217.2 32.6% 17.5%; /* Dark border color */
+    
+    --text-muted: 215 20.2% 65.1%; /* Muted text color for dark mode */
+  }
+
+  /* Custom Utility Classes */
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+}
+@media (max-width: 768px) {
+    .animate-scroll {
+      animation: scroll 150s ease-in-out infinite; /* Slow down even more on smaller screens */
+    }
+  }
+  
+@keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll {
+    display: flex;
+    animation: scroll 80s ease-in-out infinite; /* Increased duration */
+    width: max-content;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  @keyframes rgbGlow {
+    0% { border-color: rgb(255, 0, 0); }   /* Red */
+    20% { border-color: rgb(255, 165, 0); } /* Orange */
+    40% { border-color: rgb(0, 255, 0); }   /* Green */
+    60% { border-color: rgb(0, 255, 255); } /* Cyan */
+    80% { border-color: rgb(0, 0, 255); }   /* Blue */
+    100% { border-color: rgb(255, 0, 255); } /* Magenta */
+  }
+  
+  .rgb-border {
+    border-width: 2px;
+    border-style: solid;
+    animation: rgbGlow 3s infinite linear;
+  }
+  
+  .rgb-btn {
+    border-width: 2px;
+    border-style: solid;
+    animation: rgbGlow 3s infinite linear;
+  }
+
+/* Ensure text is properly sized and wrapped */
+@media (max-width: 640px) {
+  .text-7xl {
+    font-size: 2rem !important;
+    line-height: 1.1;
+    padding: 0 0.5rem;
+  }
+  
+  .text-6xl {
+    font-size: 1.875rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-5xl {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 1.625rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-2xl {
+    font-size: 1.375rem !important;
+    line-height: 1.2;
+  }
+  
+  /* Mobile subtitle spacing */
+  .hero-subtitle span {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .hero-subtitle span:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-6xl {
+    font-size: 1.75rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-5xl {
+    font-size: 1.625rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-3xl {
+    font-size: 1.375rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem !important;
+    line-height: 1.2;
+  }
+}
+
+/* Mobile-specific hero adjustments */
+@media (max-width: 768px) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Add better spacing between hero elements on mobile */
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero-content {
+    gap: 1.5rem;
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
