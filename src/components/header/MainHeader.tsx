@@ -26,6 +26,7 @@ const MainHeader = () => {
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
+    { href: "#blogs", label: "Blogs" },
     { href: "#education", label: "Education" },
     { href: "#experience", label: "Experience" },
     { href: "#contact", label: "Contact" },

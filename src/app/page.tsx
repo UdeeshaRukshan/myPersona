@@ -17,7 +17,7 @@ import Education from "../components/education/Education";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
 import Experience from "../components/experience/Experience"; // Added import
-
+import Blogs from "../components/blogs/blogs";
 export default function Page() {
   // Add this effect to scroll to top on page load
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Page() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="container mx-auto py-32 flex flex-col items-center text-center relative ">
+        <section className="container mx-auto px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
           {/* Background decorative elements */}
           <motion.div
             className="absolute -top-20 -left-20 w-72 h-72 bg-pink-300/30 rounded-full filter blur-xl opacity-70 animate-blob"
@@ -134,6 +134,7 @@ export default function Page() {
 
         {/* Education Section */}
         <Education />
+        <Blogs/>
         {/* Certification Section */}
         <CertificationsSection />
         {/* Contact Section */}

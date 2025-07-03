@@ -10,9 +10,29 @@ const nextConfig: NextConfig = {
   basePath: isProd ? '/myPersona' : '',
   assetPrefix: isProd ? '/myPersona/' : '',
   
-  // Disable image optimization for static export
+  // // Disable image optimization for static export
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-images-1.medium.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'miro.medium.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
