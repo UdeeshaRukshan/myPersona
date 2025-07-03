@@ -100,17 +100,64 @@
 /* Ensure text is properly sized and wrapped */
 @media (max-width: 640px) {
   .text-7xl {
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 1.875rem !important;
+    line-height: 1.1;
     padding: 0 0.5rem;
+  }
+  
+  .text-6xl {
+    font-size: 1.75rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-5xl {
+    font-size: 1.625rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-3xl {
+    font-size: 1.375rem !important;
+    line-height: 1.2;
   }
 }
 
-@media (max-width: 400px) {
-  .text-7xl {
-    font-size: 2rem;
+@media (max-width: 480px) {
+  .text-6xl {
+    font-size: 1.5rem !important;
     line-height: 1.1;
-    word-break: break-word;
+  }
+  
+  .text-5xl {
+    font-size: 1.375rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 1.25rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-3xl {
+    font-size: 1.125rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-2xl {
+    font-size: 1rem !important;
+    line-height: 1.2;
+  }
+}
+
+/* Mobile-specific hero adjustments */
+@media (max-width: 768px) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
   }
 }
 

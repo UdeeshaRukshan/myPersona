@@ -32,7 +32,7 @@ export default function Page() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
+        <section className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-4">
           {/* Background decorative elements */}
           <motion.div
             className="absolute -top-20 -left-20 w-72 h-72 bg-pink-300/30 rounded-full filter blur-xl opacity-70 animate-blob"
@@ -57,10 +57,10 @@ export default function Page() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-center z-10"
+            className="container mx-auto max-w-4xl z-10"
           >
             <motion.div
-              className="flex justify-center items-center mb-12" // Increased bottom margin
+              className="flex justify-center items-center mb-8 sm:mb-12"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 }}
@@ -69,22 +69,24 @@ export default function Page() {
                 src="/udeesha2.png" 
                 alt="Udeesha Rukshan"
                 className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
-                width={280} // Increased from 260
-                height={280} // Increased from 260
-                priority // Add priority for LCP optimization
+                width={300} // Responsive size for mobile
+                height={300}
+                priority
               />
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text px-4" // Added horizontal padding
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-pink-500 via-violet-500 to-teal-500 text-transparent bg-clip-text leading-tight px-2"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
-              Hello, I&apos;m Udeesha Rukshan
+              Hello, I&apos;m <br className="sm:hidden" />
+              Udeesha Rukshan
             </motion.h1>
+            
             <motion.p
-              className="text-xl md:text-2xl mb-10 text-gray-700 dark:text-gray-300"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
@@ -93,7 +95,7 @@ export default function Page() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.9 }}
@@ -101,16 +103,14 @@ export default function Page() {
               <MuiButton
                 variant="contained"
                 size="large"
-                className="bg-pink-500 hover:bg-pink-600 transition-all duration-300 ease-in-out transform hover:scale-105"
-                // sx={{ backgroundColor: 'primary.main', '&:hover': { backgroundColor: 'primary.dark' }}}
+                className="!bg-pink-500 hover:!bg-pink-600 !text-white !py-3 !px-6 !text-base !font-semibold !rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto"
               >
                 Download CV
               </MuiButton>
               <MuiButton
                 variant="outlined"
                 size="large"
-                className="border-pink-500 text-pink-500 hover:bg-pink-500/10 transition-all duration-300 ease-in-out transform hover:scale-105"
-                // sx={{ borderColor: 'primary.main', color: 'primary.main', '&:hover': { backgroundColor: 'primary.light' }}}
+                className="!border-pink-500 !text-pink-500 hover:!bg-pink-500/10 !py-3 !px-6 !text-base !font-semibold !rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto"
               >
                 <Link href="#projects" className="text-inherit dark:text-inherit">
                   View Projects
