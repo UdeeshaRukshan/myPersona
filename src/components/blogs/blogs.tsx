@@ -26,6 +26,17 @@ interface Post {
   link: string;
 }
 
+// Add interface for RSS2JSON API response item
+interface RSS2JSONItem {
+  title: string;
+  description: string;
+  pubDate: string;
+  link: string;
+  guid?: string;
+  author?: string;
+  thumbnail?: string;
+}
+
 const BlogCard: React.FC<{ blog: BlogPost; index: number }> = ({ blog, index }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
@@ -153,7 +164,7 @@ const Blogs = () => {
       
       console.log('Fetched Medium posts:', data.items); // Debug log
       
-      return data.items.map((item: any) => ({
+      return data.items.map((item: RSS2JSONItem) => ({
         title: item.title || 'Untitled',
         description: item.description || 'No description available',
         pubDate: item.pubDate || new Date().toISOString(),
