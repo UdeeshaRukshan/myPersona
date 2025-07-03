@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => {
@@ -15,6 +16,11 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () 
 
 const MainHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -31,6 +37,10 @@ const MainHeader = () => {
     { href: "#experience", label: "Experience" },
     { href: "#contact", label: "Contact" },
   ];
+
+  if (!mounted) {
+    return null; // Prevent hydration mismatch
+  }
 
   return (
     <div className="container mx-auto px-4 py-4">

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Button as MuiButton } from "@mui/material";
-import { useEffect } from "react"; // Add this import
+import { useEffect, useState } from "react";
 
 import "../styles/globals.css";
 import Image from "next/image";
@@ -19,10 +19,17 @@ import Projects from "../components/projects/Projects";
 import Experience from "../components/experience/Experience"; // Added import
 import Blogs from "../components/blogs/blogs";
 export default function Page() {
+  const [mounted, setMounted] = useState(false);
+
   // Add this effect to scroll to top on page load
   useEffect(() => {
+    setMounted(true);
     window.scrollTo(0, 0);
   }, []);
+
+  if (!mounted) {
+    return null; // Prevent hydration mismatch
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-100 to-teal-100 dark:from-gray-900 dark:to-gray-800">
@@ -68,8 +75,8 @@ export default function Page() {
               <Image
                 src="/udeesha2.png" 
                 alt="Udeesha Rukshan"
-                className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700"
-                width={300} // Responsive size for mobile
+                className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700 w-52 h-52 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
+                width={300}
                 height={300}
                 priority
               />
@@ -86,12 +93,16 @@ export default function Page() {
             </motion.h1>
             
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
+              className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
             >
-              Full Stack Developer | GenAI Developer | Cloud Enthusiast
+              <span className="block mb-2 sm:mb-0 sm:inline">Full Stack Developer</span>
+              <span className="hidden sm:inline"> | </span>
+              <span className="block mb-2 sm:mb-0 sm:inline">GenAI Developer</span>
+              <span className="hidden md:inline"> | </span>
+              <span className="hidden md:block md:inline">Cloud Enthusiast</span>
             </motion.p>
 
             <motion.div

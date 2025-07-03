@@ -100,11 +100,48 @@
 /* Ensure text is properly sized and wrapped */
 @media (max-width: 640px) {
   .text-7xl {
-    font-size: 1.875rem !important;
+    font-size: 2rem !important;
     line-height: 1.1;
     padding: 0 0.5rem;
   }
   
+  .text-6xl {
+    font-size: 1.875rem !important;
+    line-height: 1.1;
+  }
+  
+  .text-5xl {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 1.625rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-2xl {
+    font-size: 1.375rem !important;
+    line-height: 1.2;
+  }
+  
+  /* Mobile subtitle spacing */
+  .hero-subtitle span {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .hero-subtitle span:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
   .text-6xl {
     font-size: 1.75rem !important;
     line-height: 1.1;
@@ -124,31 +161,9 @@
     font-size: 1.375rem !important;
     line-height: 1.2;
   }
-}
-
-@media (max-width: 480px) {
-  .text-6xl {
-    font-size: 1.5rem !important;
-    line-height: 1.1;
-  }
-  
-  .text-5xl {
-    font-size: 1.375rem !important;
-    line-height: 1.2;
-  }
-  
-  .text-4xl {
-    font-size: 1.25rem !important;
-    line-height: 1.2;
-  }
-  
-  .text-3xl {
-    font-size: 1.125rem !important;
-    line-height: 1.2;
-  }
   
   .text-2xl {
-    font-size: 1rem !important;
+    font-size: 1.25rem !important;
     line-height: 1.2;
   }
 }
@@ -158,6 +173,16 @@
   .min-h-screen {
     min-height: 100vh;
     min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Add better spacing between hero elements on mobile */
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero-content {
+    gap: 1.5rem;
   }
 }
 

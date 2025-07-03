@@ -15,17 +15,33 @@ const textFieldStyles = {
     "&.Mui-focused fieldset": {
       borderColor: "#ec4899", // pink-500
     },
-    color: "text.primary", // Let theme handle text color
-    backgroundColor: "transparent", // Ensure no override from Mui
+    color: "inherit", // Inherit text color from parent
   },
   "& .MuiInputLabel-root": {
-    color: "text.secondary", // Let theme handle label color
+    color: "rgba(156, 163, 175, 0.8)", // gray-400 with opacity
     "&.Mui-focused": {
       color: "#ec4899", // pink-500
+    },
+    "&.MuiInputLabel-shrink": {
+      color: "rgba(156, 163, 175, 0.9)", // slightly more opaque when shrunk
     }
   },
   "& .MuiOutlinedInput-input": {
-    color: "text.primary", // Let theme handle input text color
+    color: "inherit !important", // Force inherit text color with important
+    "&::placeholder": {
+      color: "rgba(156, 163, 175, 0.6) !important", // gray-400 with opacity for placeholder
+      opacity: "1 !important",
+    },
+  },
+  "& .MuiOutlinedInput-inputMultiline": {
+    color: "inherit !important", // Force inherit text color for textarea with important
+  },
+  // Additional selectors to ensure text color inheritance
+  "& input": {
+    color: "inherit !important",
+  },
+  "& textarea": {
+    color: "inherit !important",
   },
 };
 
@@ -47,7 +63,7 @@ function Contact() {
   return (
     <section id="contact" className="container mx-auto px-4 py-24">
       <motion.div
-        className="max-w-2xl mx-auto" // Slightly narrower for contact form
+        className="max-w-2xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -61,10 +77,10 @@ function Contact() {
         </motion.h2>
         <motion.div
           variants={itemVariants}
-          className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl" // Enhanced shadow and rounding
+          className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl text-gray-900 dark:text-white"
         >
           <form
-            action="https://formsubmit.co/udeeshagamage12@gmail.com" // Replace with your actual email
+            action="https://formsubmit.co/udeeshagamage12@gmail.com"
             method="POST"
             className="space-y-6"
           >
@@ -76,8 +92,11 @@ function Contact() {
                 variant="outlined"
                 fullWidth
                 required
-                InputProps={{ className: "dark:text-white" }}
+                placeholder="Enter your full name"
                 sx={textFieldStyles}
+                inputProps={{
+                  style: { color: 'inherit' }
+                }}
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -89,8 +108,11 @@ function Contact() {
                 variant="outlined"
                 fullWidth
                 required
-                InputProps={{ className: "dark:text-white" }}
+                placeholder="Enter your email address"
                 sx={textFieldStyles}
+                inputProps={{
+                  style: { color: 'inherit' }
+                }}
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -103,8 +125,11 @@ function Contact() {
                 required
                 multiline
                 rows={5}
-                InputProps={{ className: "dark:text-white" }}
+                placeholder="Tell me about your project or just say hello..."
                 sx={textFieldStyles}
+                inputProps={{
+                  style: { color: 'inherit' }
+                }}
               />
             </motion.div>
             <motion.div variants={itemVariants}>
