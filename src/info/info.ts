@@ -1,5 +1,13 @@
 const projects = [
-  
+{
+      id: 10,
+      title: "Vision OS - Stay safe",
+      description: "A Vision OS based admin dashboard developed using spatial view for monitoring criminal activities",
+      image: "/staysafe.png",
+      github:"", 
+      demo:""
+    }
+  ,
   {
       id: 8,
       title: "LMSCoreService",
@@ -60,7 +68,7 @@ const projects = [
       id: 7,
       title: "AI-Powered Chatbot",
       description: "A chatbot that uses Deepseek to provide answers to user queries based on the available documents.",
-      image: "/chatbot.png",
+      image: "/Chatbot.png",
       github:"", 
       demo:""
     },
@@ -72,7 +80,14 @@ const projects = [
       github:"", 
       demo:""
     },
-    
+    {
+      id: 11,
+      title: "Automated daily vocabulary email service",
+      description: "Automated daily vocabulary email service",
+      image: "",
+      github:"", 
+      demo:""
+    }
     
    
   ];
