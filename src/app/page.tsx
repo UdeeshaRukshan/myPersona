@@ -102,7 +102,7 @@ export default function Page() {
               <span className="hidden sm:inline"> | </span>
               <span className="block mb-2 sm:mb-0 sm:inline">GenAI Developer</span>
               <span className="hidden md:inline"> | </span>
-              <span className="hidden md:block md:inline">Cloud Enthusiast</span>
+              <span className="hidden md:block md:inline">Associate Software Engineer</span>
             </motion.p>
 
             <motion.div
