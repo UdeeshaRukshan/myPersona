@@ -73,7 +73,7 @@ export default function Page() {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 }}
             >
               <Image
-                src="/udeesha2.png" 
+                src="./udeesha2.png" 
                 alt="Udeesha Rukshan"
                 className="rounded-full shadow-2xl border-4 border-white dark:border-gray-700 w-52 h-52 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
                 width={300}

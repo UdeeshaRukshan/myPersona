@@ -15,7 +15,7 @@ const experiences: ExperienceInfo[] = [
       "Developing software solutions using .NET and Ruby on Rails frameworks.", 
       "Collaborating with cross-functional teams to deliver high-quality software solutions.",
     ],
-    logo: "/Fidenz-Technologies.png",
+    logo: "./Fidenz-Technologies.png",
   },
   {
     company: "GTN Technologies",
@@ -26,7 +26,7 @@ const experiences: ExperienceInfo[] = [
       "Developing and maintaining RESTful APIs for various services.",
       "Collaborating with cross-functional teams to deliver high-quality software solutions.",
     ],
-    logo: "/gtngroup_logo.jpeg",
+    logo: "./gtngroup_logo.jpeg",
   },
   
   
