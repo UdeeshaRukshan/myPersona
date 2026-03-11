@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
   distDir: 'out', // Change output folder (default is 'out')
   
   // Only apply basePath and assetPrefix in production
-  basePath: isProd ? '/myPersona' : '',
-  assetPrefix: isProd ? '/myPersona/' : '',
+  basePath: '',
+  assetPrefix: '',
   
   // // Disable image optimization for static export
   images: {
