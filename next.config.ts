@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: 'export', // Enable static export
   distDir: 'out', // Change output folder (default is 'out')
   
-  // Only apply basePath and assetPrefix in production
+  // Set these to your repository name
   basePath: isProd ? '/myPersona' : '',
   assetPrefix: isProd ? '/myPersona/' : '',
   
